@@ -32,7 +32,10 @@ Note: You must provide either a `url` or `host`.
 
 If providing a `host` the `url` is created from `host`/`owner`/`repo` using either provided values or source repository values.
 
-Example workflow file: `.github/workflows/mirror.yaml`
+1. Create Remote Repository to Mirror Too, for example on: https://codeberg.org
+2. Create a Token to use as a Password for Pushing Commits on this Mirror.
+3. Go to the settings for your source repository on GitHub and add the `CODEBERG_TOKEN` secret.
+4. Add the following file to the following location: `.github/workflows/mirror.yaml`
 
 ```yaml
 name: 'Mirror'
@@ -58,7 +61,6 @@ jobs:
                   fetch-depth: 0
 
             - name: 'Mirror to Codeberg'
-              id: test
               uses: cssnr/mirror-repository-action@master
               with:
                   url: https://codeberg.org/cssnr/mirror-repository-action

@@ -1,6 +1,6 @@
 FROM alpine:latest
 
-RUN apk add --update --no-cache bash git
+RUN apk add --update --no-cache bash git curl
 
 COPY src/ /src
 

@@ -45,6 +45,7 @@ echo "GIT_HOST: ${GIT_HOST}"
 if [ -n "${INPUT_CREATE}" ];then
     echo "Attempting Create Repository: ${INPUT_CREATE}"
     set +e
+    # shellcheck source=./codeberg.sh disable=SC1091
     source ./codeberg.sh
     set -e
 fi

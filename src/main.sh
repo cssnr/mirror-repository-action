@@ -24,7 +24,7 @@ echo "---------- INPUTS ----------"
 if [ -z "${INPUT_URL}" ];then
     HOST="${INPUT_HOST:?err}"
     echo "HOST: ${HOST}"
-    OWNER="${INPUT_USER:-${GITHUB_REPOSITORY_OWNER}}"
+    OWNER="${INPUT_OWNER:-${GITHUB_REPOSITORY_OWNER}}"
     echo "OWNER: ${OWNER}"
     REPO="${INPUT_REPO:-$(echo "${GITHUB_REPOSITORY}" | awk -F'/' '{print $2}')}"
     echo "REPO: ${REPO}"

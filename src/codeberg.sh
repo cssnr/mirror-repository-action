@@ -17,10 +17,10 @@ EOF
 
 if [ "${USERNAME}" = "${OWNER}" ];then
     echo "Personal Repository Detected."
-    URL="${GIT_HOST}/api/v1/user/repos"
+    URL="${GIT_URL}/api/v1/user/repos"
 else
     echo "Organization Repository Detected."
-    URL="${GIT_HOST}/api/v1/orgs/${OWNER}/repos"
+    URL="${GIT_URL}/api/v1/orgs/${OWNER}/repos"
 fi
 
 echo "CREATE URL: ${URL}"

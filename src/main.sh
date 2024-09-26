@@ -42,6 +42,9 @@ PASSWORD="${INPUT_PASSWORD:?err}"
 GIT_HOST=$(echo "${REMOTE_URL}" | awk -F'/' '{print $3}')
 echo "GIT_HOST: ${GIT_HOST}"
 
+GIT_URL="https://${GIT_HOST}"
+echo "GIT_URL: ${GIT_URL}"
+
 if [ -n "${INPUT_CREATE}" ];then
     echo "Attempting Create Repository: ${INPUT_CREATE}"
     set +e

@@ -25,6 +25,7 @@ Mirror Git Repository to Remote Host.
 | host     | No if `url`  | -          | Full Host to Mirror, example: `https://codeberg.org` |
 | owner    | No           | Repo Owner | Repository Owner of Mirror                           |
 | repo     | No           | Repo Name  | Repository Name of Mirror                            |
+| create   | No           | false      | Set to `true` to attempt to auto-create the Mirror   |
 | username | No           | Repo Owner | Username for Authentication to Mirror                |
 | password | Yes          | -          | Token or Password for Authentication to Mirror       |
 
@@ -32,8 +33,8 @@ Note: You must provide either a `url` or `host`.
 
 If providing a `host` the `url` is created from `host`/`owner`/`repo` using either provided values or source repository values.
 
-1. Create Remote Repository to Mirror Too, for example on: https://codeberg.org
-2. Create a Token to use as a Password for Pushing Commits on this Mirror.
+1. Create Remote Repository to Mirror, or set `create` to `true`, for example on: https://codeberg.org
+2. Create a Token to use as a Password for Pushing Commits on this Mirror, or Creating Repositories.
 3. Go to the settings for your source repository on GitHub and add the `CODEBERG_TOKEN` secret.
 4. Add the following file to the following location: `.github/workflows/mirror.yaml`
 
@@ -67,6 +68,7 @@ jobs:
                   #host: https://codeberg.org
                   #owner: cssnr
                   #repo: mirror-repository-action
+                  #create: true
                   username: shaner
                   password: ${{ secrets.CODEBERG_TOKEN }}
 ```

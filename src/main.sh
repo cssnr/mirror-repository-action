@@ -42,6 +42,14 @@ PASSWORD="${INPUT_PASSWORD:?err}"
 GIT_HOST=$(echo "${REMOTE_URL}" | awk -F'/' '{print $3}')
 echo "GIT_HOST: ${GIT_HOST}"
 
+if [ -n "${INPUT_CREATE}" ];then
+    echo "Attempting Create Repository: ${INPUT_CREATE}"
+    set +e
+    source ./codeberg.sh
+    set -e
+fi
+
+
 git config --global --add safe.directory "$(pwd)"
 
 git config --global credential.helper cache

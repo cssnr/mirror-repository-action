@@ -28,6 +28,7 @@ jobs:
           host: https://codeberg.org
           #owner: cssnr
           #repo: mirror-repository-action
+          create: true
           username: shaner
           password: ${{ secrets.CODEBERG_TOKEN }}
 

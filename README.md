@@ -19,23 +19,26 @@ Mirror Git Repository to Remote Host.
 
 ## Inputs
 
-| input    | required     | default    | description                                          |
-| -------- | ------------ | ---------- | ---------------------------------------------------- |
-| url      | No if `host` | -          | Full URL to Mirror, overrides: `host`/`owner`/`repo` |
-| host     | No if `url`  | -          | Full Host to Mirror, example: `https://codeberg.org` |
-| owner    | No           | Repo Owner | Repository Owner of Mirror                           |
-| repo     | No           | Repo Name  | Repository Name of Mirror                            |
-| username | No           | Repo Owner | Username for Authentication to Mirror                |
-| password | Yes          | -          | Token or Password for Authentication to Mirror       |
+| input    | required      | default    | description                                              |
+| -------- | ------------- | ---------- | -------------------------------------------------------- |
+| url      | Not w/ `host` | -          | \* Full URL to Mirror, overrides: `host`/`owner`/`repo`  |
+| host     | Not w/ `url`  | -          | \* Full Host to Mirror, example: `https://codeberg.org`  |
+| owner    | No            | Repo Owner | \* Repository Owner of Mirror (if different from source) |
+| repo     | No            | Repo Name  | \* Repository Name of Mirror (if different from source)  |
+| create   | No            | -          | \* Set to `true` to attempt to Create the Mirror Repo    |
+| username | No            | Repo Owner | Username for Authentication to Mirror                    |
+| password | Yes           | -          | Token or Password for Authentication to Mirror           |
 
-Note: You must provide either a `url` or `host`.
+**url/host** - You must provide either a full repository `url` or a `host` value.
 
-If providing a `host` the `url` is created from `host`/`owner`/`repo` using either provided values or source repository values.
+**owner/repo** - If different from source, you must specify these values.
 
-1. Create Remote Repository to Mirror Too, for example on: https://codeberg.org
-2. Create a Token to use as a Password for Pushing Commits on this Mirror.
+**create** - Tested with codeberg but should also work with gitea/fojgeo. Do not set or leave empty to disable.
+
+1. Create a Token for Mirror to use as a Password for Pushing Commits, or Creating Repositories.
+2. Create Remote Repository to Mirror, or set `create` to `true`, for example: `https://codeberg.org`
 3. Go to the settings for your source repository on GitHub and add the `CODEBERG_TOKEN` secret.
-4. Add the following file to the following location: `.github/workflows/mirror.yaml`
+4. Add the following file to source repository on GitHub: `.github/workflows/mirror.yaml`
 
 ```yaml
 name: 'Mirror'
@@ -67,6 +70,7 @@ jobs:
                   #host: https://codeberg.org
                   #owner: cssnr
                   #repo: mirror-repository-action
+                  #create: true
                   username: shaner
                   password: ${{ secrets.CODEBERG_TOKEN }}
 ```

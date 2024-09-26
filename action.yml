@@ -18,6 +18,9 @@ inputs:
   repo:
     description: "Remote Repository Name"
     required: false
+  create:
+    description: "Create Remote Repository"
+    required: false
   username:
     description: "Remote Repository Username"
     required: false

@@ -1,0 +1,9 @@
+.idea/
+*.iml
+.vscode/
+venv/
+__pycache__/
+*.pyc
+.env
+.secrets
+.vars

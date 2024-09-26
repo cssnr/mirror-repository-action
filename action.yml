@@ -1,0 +1,30 @@
+name: "Mirror Repository Action"
+description: "Mirror Git Repository to Remote Host."
+author: "Shane"
+branding:
+  icon: "git-merge"
+  color: "black"
+
+inputs:
+  url:
+    description: "Remote Repository URL"
+    required: false
+  host:
+    description: "Remote Repository Host"
+    required: false
+  owner:
+    description: "Remote Repository Owner"
+    required: false
+  repo:
+    description: "Remote Repository Name"
+    required: false
+  username:
+    description: "Remote Repository Username"
+    required: false
+  password:
+    description: "Remote Repository Password"
+    required: false
+
+runs:
+  using: "docker"
+  image: "Dockerfile"

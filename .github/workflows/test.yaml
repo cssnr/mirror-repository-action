@@ -1,0 +1,44 @@
+name: "Test"
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - "**"
+    tags:
+      - "**"
+
+jobs:
+  test:
+    name: "Test"
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: "Checkout"
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: "Test Local Action"
+        id: test
+        uses: ./
+        with:
+          #url: https://codeberg.org/cssnr/mirror-repository-action
+          host: https://codeberg.org
+          #owner: cssnr
+          #repo: mirror-repository-action
+          username: shaner
+          password: ${{ secrets.CODEBERG_TOKEN }}
+
+  lint:
+    name: "Lint"
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: "Checkout"
+        uses: actions/checkout@v4
+
+      - name: "Run ShellCheck"
+        uses: ludeeus/action-shellcheck@2.0.0

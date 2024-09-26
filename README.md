@@ -32,16 +32,18 @@ Note: You must provide either a `url` or `host`.
 
 If providing a `host` the `url` is created from `host`/`owner`/`repo` using either provided values or source repository values.
 
+Example workflow file: `.github/workflows/mirror.yaml`
+
 ```yaml
 name: 'Mirror'
 
 on:
     workflow_dispatch:
+    release:
+        types: ['published']
     push:
-        branches:
-            - '**'
-        tags:
-            - '**'
+        branches: ['**']
+        tags: ['**']
 
 jobs:
     mirror:

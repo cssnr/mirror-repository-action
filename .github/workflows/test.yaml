@@ -2,11 +2,11 @@ name: "Test"
 
 on:
   workflow_dispatch:
+  release:
+    types: ["published"]
   push:
-    branches:
-      - "**"
-    tags:
-      - "**"
+    branches: ["**"]
+    tags: ["**"]
 
 jobs:
   test:

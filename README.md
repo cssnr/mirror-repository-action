@@ -39,7 +39,6 @@ Mirror Git Repository to Remote Host.
 
    - Codeberg/Gitea/Forgejo go here: https://codeberg.org/user/settings/applications
    - Select Permissions: `write:organization` `write:repository` `write:user`
-   - Set `host` to `https://codeberg.org` and works with `create: true`
 
 2. Create Remote Repository to Mirror, or set `create` to `true`, for example: `https://codeberg.org`
 3. Go to the settings for your source repository on GitHub and add the `CODEBERG_TOKEN` secret.
@@ -49,7 +48,7 @@ Mirror Git Repository to Remote Host.
 4. Add the following file to source repository on GitHub: `.github/workflows/mirror.yaml`
 
    - The `owner` is automatically set to the GitHub Organization or Username if personal. Set to override.
-   - The `repo` is automatically set to the GitHub Repository Name. This should usually not be set.
+   - The `repo` is automatically set to the GitHub Repository Name. This should only be set to rename repo.
    - For Codeberg, use the `host` below and set the `username` to your Codeberg username.
 
 ```yaml

@@ -51,6 +51,8 @@ Mirror Git Repository to Remote Host.
    - The `repo` is automatically set to the GitHub Repository Name. This should only be set to rename repo.
    - For Codeberg, use the `host` below and set the `username` to your Codeberg username.
 
+The below yaml is available in this file: [.github/workflows/mirror.yaml](mirror.yaml)
+
 ```yaml
 name: 'Mirror'
 
@@ -81,7 +83,7 @@ jobs:
           host: https://codeberg.org
           #owner: cssnr
           #repo: mirror-repository-action
-          #create: true
+          create: true
           username: shaner
           password: ${{ secrets.CODEBERG_TOKEN }}
 ```

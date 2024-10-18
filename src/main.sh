@@ -19,18 +19,25 @@ echo "GITHUB_REPOSITORY_OWNER: ${GITHUB_REPOSITORY_OWNER}"
 
 echo "---------- INPUTS ----------"
 
-[[ -n "${INPUT_URL}" ]] && REMOTE_URL="${INPUT_URL}"
+#[[ -n "${INPUT_URL}" ]] && REMOTE_URL="${INPUT_URL}"
 #echo "REMOTE_URL: ${REMOTE_URL}"
 if [ -z "${INPUT_URL}" ];then
+    echo "No INPUT_URL: Processing variables manually."
     HOST="${INPUT_HOST:?err}"
-    echo "HOST: ${HOST}"
     OWNER="${INPUT_OWNER:-${GITHUB_REPOSITORY_OWNER}}"
-    echo "OWNER: ${OWNER}"
     REPO="${INPUT_REPO:-$(echo "${GITHUB_REPOSITORY}" | awk -F'/' '{print $2}')}"
-    echo "REPO: ${REPO}"
     REMOTE_URL="${HOST}/${OWNER}/${REPO}"
+else
+    echo "INPUT_URL Provided: Processing variables from INPUT_URL."
+    HOST=$(echo "${INPUT_URL}" | sed -E 's|(https?://[^/]+).*|\1|')
+    OWNER=$(echo "${INPUT_URL}" | sed -E 's|https?://[^/]+/([^/]+)/.*|\1|')
+    REPO=$(echo "${INPUT_URL}" | sed -E 's|https?://[^/]+/[^/]+/([^/]+).*|\1|')
+    REMOTE_URL="${INPUT_URL}"
 fi
 
+echo -e "HOST: \u001b[33;1m${HOST}"
+echo -e "OWNER: \u001b[33;1m${OWNER}"
+echo -e "REPO: \u001b[33;1m${REPO}"
 echo -e "REMOTE_URL: \u001b[33;1m${REMOTE_URL}"
 
 USERNAME="${INPUT_USERNAME:-${OWNER}}"
@@ -70,6 +77,7 @@ EOF
 BRANCH="$(git rev-parse --symbolic-full-name --abbrev-ref HEAD)"
 echo "BRANCH: ${BRANCH}"
 
+git remote -v
 git remote add mirror "${REMOTE_URL}"
 git remote -v
 

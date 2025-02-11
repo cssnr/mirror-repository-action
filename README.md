@@ -36,7 +36,7 @@ Mirror Git Repository to Remote Host.
 
 **create** - Tested with codeberg but should also work with gitea/forgejo. Do not set or leave empty to disable.
 
-# Setup Instructions
+## Setup Instructions
 
 1. Create a Token for Mirror to use as a Password for Pushing Commits, or Creating Repositories.
 

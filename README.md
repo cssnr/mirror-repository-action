@@ -41,6 +41,7 @@ Mirror Git Repository to Remote Host.
    - Select Permissions: `write:organization` `write:repository` `write:user`
 
 2. Create Remote Repository to Mirror, or set `create` to `true`, for example: `https://codeberg.org`
+
 3. Go to the settings for your source repository on GitHub and add the `CODEBERG_TOKEN` secret.
 
    - For organizations, you can add the token one time at the Organization level.
@@ -77,7 +78,7 @@ jobs:
           fetch-depth: 0
 
       - name: 'Mirror to Codeberg'
-        uses: cssnr/mirror-repository-action@master
+        uses: cssnr/mirror-repository-action@v1
         with:
           #url: https://codeberg.org/cssnr/mirror-repository-action
           host: https://codeberg.org
@@ -116,6 +117,7 @@ Additionally, you can support other GitHub Actions I have published:
 - [Update JSON Value Action](https://github.com/cssnr/update-json-value-action)
 - [Parse Issue Form Action](https://github.com/cssnr/parse-issue-form-action)
 - [Mirror Repository Action](https://github.com/cssnr/mirror-repository-action)
+- [Stack Deploy Action](https://github.com/cssnr/stack-deploy-action)
 - [Portainer Stack Deploy](https://github.com/cssnr/portainer-stack-deploy-action)
 - [Mozilla Addon Update Action](https://github.com/cssnr/mozilla-addon-update-action)
 

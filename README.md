@@ -13,9 +13,10 @@
 Mirror Git Repository to Remote Host.
 
 - [Inputs](#Inputs)
+- [Setup Instructions](#Setup-Instructions)
+- [Example](#Example)
 - [Support](#Support)
 - [Contributing](#Contributing)
-- [Development](#Development)
 
 ## Inputs
 
@@ -31,9 +32,11 @@ Mirror Git Repository to Remote Host.
 
 **url/host** - You must provide either a full repository `url` or a `host` value.
 
-**owner/repo** - If different from source, you must specify these values.
+**owner/repo** - If different from source, you must specify these values (overridden by `url`).
 
 **create** - Tested with codeberg but should also work with gitea/forgejo. Do not set or leave empty to disable.
+
+# Setup Instructions
 
 1. Create a Token for Mirror to use as a Password for Pushing Commits, or Creating Repositories.
 
@@ -51,6 +54,8 @@ Mirror Git Repository to Remote Host.
    - The `owner` is automatically set to the GitHub Organization or Username if personal. Set to override.
    - The `repo` is automatically set to the GitHub Repository Name. This should only be set to rename repo.
    - For Codeberg, use the `host` below and set the `username` to your Codeberg username.
+
+## Example
 
 The below yaml is available in this file: [.github/workflows/mirror.yaml](mirror.yaml)
 
@@ -122,18 +127,3 @@ Additionally, you can support other GitHub Actions I have published:
 - [Mozilla Addon Update Action](https://github.com/cssnr/mozilla-addon-update-action)
 
 For a full list of current projects to support visit: [https://cssnr.github.io/](https://cssnr.github.io/)
-
-# Development
-
-1. Install `act`: https://nektosact.com/installation/index.html
-2. List Workflows: `act -l`
-3. Run a Workflow: `act -j test`
-
-If you need files from .gitignore use: `--use-gitignore=false`
-
-For advanced using with things like secrets, variables and context see: https://nektosact.com/usage/index.html
-
-You should also review the options from `act --help`
-
-Note, the `.env`, `.secrets` and `.vars` files are automatically sourced with no extra options.
-To source `event.json` you need to run act with `act -e event.json`

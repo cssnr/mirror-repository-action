@@ -1,5 +1,6 @@
 [![Tags](https://img.shields.io/github/actions/workflow/status/cssnr/mirror-repository-action/tags.yaml?logo=github&logoColor=white&label=tags)](https://github.com/cssnr/mirror-repository-action/actions/workflows/tags.yaml)
 [![Test](https://img.shields.io/github/actions/workflow/status/cssnr/mirror-repository-action/test.yaml?logo=github&logoColor=white&label=test)](https://github.com/cssnr/mirror-repository-action/actions/workflows/test.yaml)
+[![Lint](https://img.shields.io/github/actions/workflow/status/cssnr/mirror-repository-action/lint.yaml?logo=github&logoColor=white&label=lint)](https://github.com/cssnr/mirror-repository-action/actions/workflows/lint.yaml)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=cssnr_mirror-repository-action&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=cssnr_mirror-repository-action)
 [![GitHub Release Version](https://img.shields.io/github/v/release/cssnr/mirror-repository-action?logo=github)](https://github.com/cssnr/mirror-repository-action/releases/latest)
 [![GitHub Last Commit](https://img.shields.io/github/last-commit/cssnr/mirror-repository-action?logo=github&logoColor=white&label=updated)](https://github.com/cssnr/mirror-repository-action/graphs/commit-activity)
@@ -10,25 +11,25 @@
 
 # Mirror Repository Action
 
-Mirror Git Repository to Remote Host.
-
 - [Inputs](#Inputs)
 - [Setup Instructions](#Setup-Instructions)
 - [Example](#Example)
 - [Support](#Support)
 - [Contributing](#Contributing)
 
+Mirror Git Repository to Remote Host.
+
 ## Inputs
 
-| input    | required      | default    | description                                              |
-| -------- | ------------- | ---------- | -------------------------------------------------------- |
-| url      | Not w/ `host` | -          | \* Full URL to Mirror, overrides: `host`/`owner`/`repo`  |
-| host     | Not w/ `url`  | -          | \* Full Host to Mirror, example: `https://codeberg.org`  |
-| owner    | No            | Repo Owner | \* Repository Owner of Mirror (if different from source) |
-| repo     | No            | Repo Name  | \* Repository Name of Mirror (if different from source)  |
-| create   | No            | -          | \* Set to `true` to attempt to Create the Mirror Repo    |
-| username | No            | Repo Owner | Username for Authentication to Mirror                    |
-| password | Yes           | -          | Token or Password for Authentication to Mirror           |
+| input    | required  | default    | description                                              |
+| -------- | :-------: | ---------- | -------------------------------------------------------- |
+| url      | or `host` | -          | \* Full URL to Mirror, overrides: `host`/`owner`/`repo`  |
+| host     | or `url`  | -          | \* Full Host to Mirror, example: `https://codeberg.org`  |
+| owner    |     -     | Repo Owner | \* Repository Owner of Mirror (if different from source) |
+| repo     |     -     | Repo Name  | \* Repository Name of Mirror (if different from source)  |
+| create   |     -     | -          | \* Set to `true` to attempt to Create the Mirror Repo    |
+| username |     -     | Repo Owner | Username for Authentication to Mirror                    |
+| password |  **Yes**  | -          | Token or Password for Authentication to Mirror           |
 
 **url/host** - You must provide either a full repository `url` or a `host` value.
 
@@ -43,7 +44,7 @@ Mirror Git Repository to Remote Host.
    - Codeberg/Gitea/Forgejo go here: https://codeberg.org/user/settings/applications
    - Select Permissions: `write:organization` `write:repository` `write:user`
 
-2. Create Remote Repository to Mirror, or set `create` to `true`, for example: `https://codeberg.org`
+2. Create Remote Repository to Mirror (or set `create` to `true` for codeberg.org).
 
 3. Go to the settings for your source repository on GitHub and add the `CODEBERG_TOKEN` secret.
 
@@ -53,7 +54,7 @@ Mirror Git Repository to Remote Host.
 
    - The `owner` is automatically set to the GitHub Organization or Username if personal. Set to override.
    - The `repo` is automatically set to the GitHub Repository Name. This should only be set to rename repo.
-   - For Codeberg, use the `host` below and set the `username` to your Codeberg username.
+   - For Codeberg, use the `host` to `https://codeberg.org` and set the `username` to your Codeberg username.
 
 ## Example
 
@@ -64,8 +65,6 @@ name: 'Mirror'
 
 on:
   workflow_dispatch:
-  release:
-    types: ['published']
   push:
     branches: ['**']
     tags: ['**']
@@ -109,7 +108,7 @@ If you are experiencing an issue/bug or getting unexpected results, you can:
 - Report an Issue: https://github.com/cssnr/mirror-repository-action/issues
 - Chat with us on Discord: https://discord.gg/wXy6m2X8wY
 - Provide General
-  Feedback: [https://cssnr.github.io/feedback/](https://cssnr.github.io/feedback/?app=Mirror%20Artifacts%20Action)
+  Feedback: [https://cssnr.github.io/feedback/](https://cssnr.github.io/feedback/?app=Mirror%20Repository%20Action)
 
 # Contributing
 
@@ -117,13 +116,15 @@ Currently, the best way to contribute to this project is to star this project on
 
 Additionally, you can support other GitHub Actions I have published:
 
-- [VirusTotal Action](https://github.com/cssnr/virustotal-action)
-- [Update Version Tags Action](https://github.com/cssnr/update-version-tags-action)
-- [Update JSON Value Action](https://github.com/cssnr/update-json-value-action)
-- [Parse Issue Form Action](https://github.com/cssnr/parse-issue-form-action)
-- [Mirror Repository Action](https://github.com/cssnr/mirror-repository-action)
-- [Stack Deploy Action](https://github.com/cssnr/stack-deploy-action)
-- [Portainer Stack Deploy](https://github.com/cssnr/portainer-stack-deploy-action)
-- [Mozilla Addon Update Action](https://github.com/cssnr/mozilla-addon-update-action)
+- [Stack Deploy Action](https://github.com/cssnr/stack-deploy-action?tab=readme-ov-file#readme)
+- [Portainer Stack Deploy](https://github.com/cssnr/portainer-stack-deploy-action?tab=readme-ov-file#readme)
+- [VirusTotal Action](https://github.com/cssnr/virustotal-action?tab=readme-ov-file#readme)
+- [Mirror Repository Action](https://github.com/cssnr/mirror-repository-action?tab=readme-ov-file#readme)
+- [Update Version Tags Action](https://github.com/cssnr/update-version-tags-action?tab=readme-ov-file#readme)
+- [Update JSON Value Action](https://github.com/cssnr/update-json-value-action?tab=readme-ov-file#readme)
+- [Parse Issue Form Action](https://github.com/cssnr/parse-issue-form-action?tab=readme-ov-file#readme)
+- [Cloudflare Purge Cache Action](https://github.com/cssnr/cloudflare-purge-cache-action?tab=readme-ov-file#readme)
+- [Mozilla Addon Update Action](https://github.com/cssnr/mozilla-addon-update-action?tab=readme-ov-file#readme)
+- [Docker Tags Action](https://github.com/cssnr/docker-tags-action?tab=readme-ov-file#readme)
 
 For a full list of current projects to support visit: [https://cssnr.github.io/](https://cssnr.github.io/)

@@ -1,4 +1,4 @@
-FROM alpine:latest
+FROM alpine:3
 
 RUN apk add --update --no-cache bash curl git
 

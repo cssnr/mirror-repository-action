@@ -1,4 +1,4 @@
-[![Release](https://img.shields.io/github/actions/workflow/status/cssnr/mirror-repository-action/releaseyaml?logo=github&logoColor=white&label=release)](https://github.com/cssnr/mirror-repository-action/actions/workflows/release.yaml)
+[![Release](https://img.shields.io/github/actions/workflow/status/cssnr/mirror-repository-action/release.yaml?logo=github&logoColor=white&label=release)](https://github.com/cssnr/mirror-repository-action/actions/workflows/release.yaml)
 [![Test](https://img.shields.io/github/actions/workflow/status/cssnr/mirror-repository-action/test.yaml?logo=github&logoColor=white&label=test)](https://github.com/cssnr/mirror-repository-action/actions/workflows/test.yaml)
 [![Lint](https://img.shields.io/github/actions/workflow/status/cssnr/mirror-repository-action/lint.yaml?logo=github&logoColor=white&label=lint)](https://github.com/cssnr/mirror-repository-action/actions/workflows/lint.yaml)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=cssnr_mirror-repository-action&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=cssnr_mirror-repository-action)

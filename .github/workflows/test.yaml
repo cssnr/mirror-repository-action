@@ -1,11 +1,9 @@
 name: "Test"
 
-# NOTE: Job test mirror's the action so there is no mirror.yaml workflow...
+# TODO: This job mirror's the repository so there is no mirror.yaml. Overhaul this workflow...
 
 on:
   workflow_dispatch:
-  release:
-    types: ["published"]
   push:
     branches: ["**"]
     tags: ["**"]
@@ -33,18 +31,3 @@ jobs:
           create: true
           username: shaner
           password: ${{ secrets.CODEBERG_TOKEN }}
-
-  lint:
-    name: "Lint"
-    runs-on: ubuntu-latest
-    timeout-minutes: 5
-
-    steps:
-      - name: "Checkout"
-        uses: actions/checkout@v4
-
-      - name: "Run ShellCheck"
-        uses: ludeeus/action-shellcheck@2.0.0
-        with:
-          scandir: "src"
-          check_together: "yes"

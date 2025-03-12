@@ -1,5 +1,6 @@
-[![Tags](https://img.shields.io/badge/tags-v1_%7C_v1.1-blue?logo=git&logoColor=white)](https://github.com/cssnr/mirror-repository-action/tags)
-[![GitHub Release Version](https://img.shields.io/github/v/release/cssnr/mirror-repository-action?logo=git&logoColor=white&label=latest)](https://github.com/cssnr/mirror-repository-action/releases/latest)
+[![GitHub Tag Major](https://img.shields.io/github/v/tag/cssnr/mirror-repository-action?sort=semver&filter=!v*.*&logo=git&logoColor=white&labelColor=585858&label=%20)](https://github.com/cssnr/mirror-repository-action/tags)
+[![GitHub Tag Minor](https://img.shields.io/github/v/tag/cssnr/mirror-repository-action?sort=semver&filter=!v*.*.*&logo=git&logoColor=white&labelColor=585858&label=%20)](https://github.com/cssnr/mirror-repository-action/tags)
+[![GitHub Release Version](https://img.shields.io/github/v/release/cssnr/mirror-repository-action?logo=git&logoColor=white&labelColor=585858&label=%20)](https://github.com/cssnr/mirror-repository-action/releases/latest)
 [![Release](https://img.shields.io/github/actions/workflow/status/cssnr/mirror-repository-action/release.yaml?logo=github&label=release)](https://github.com/cssnr/mirror-repository-action/actions/workflows/release.yaml)
 [![Test](https://img.shields.io/github/actions/workflow/status/cssnr/mirror-repository-action/test.yaml?logo=github&label=test)](https://github.com/cssnr/mirror-repository-action/actions/workflows/test.yaml)
 [![Lint](https://img.shields.io/github/actions/workflow/status/cssnr/mirror-repository-action/lint.yaml?logo=github&label=lint)](https://github.com/cssnr/mirror-repository-action/actions/workflows/lint.yaml)
@@ -20,8 +21,6 @@
 - [Contributing](#Contributing)
 
 Mirror Git Repository to Remote Host.
-
-A Web Extension for this Action that is in development: https://github.com/cssnr/github-extension
 
 ## Inputs
 
@@ -59,6 +58,11 @@ A Web Extension for this Action that is in development: https://github.com/cssnr
    - The `owner` is automatically set to the GitHub Organization or Username if personal. Set to override.
    - The `repo` is automatically set to the GitHub Repository Name. This should only be set to rename repo.
    - For Codeberg, use the `host` to `https://codeberg.org` and set the `username` to your Codeberg username.
+
+> [!TIP]  
+> This process has been automated with a Web Extension.  
+> However, currently requires manual installation:
+> [cssnr/github-extension](https://github.com/cssnr/github-extension)
 
 ## Example
 
@@ -102,17 +106,15 @@ jobs:
 
 ## Tags
 
-The following [rolling tags](https://github.com/cssnr/mirror-repository-action/tags) are maintained.
+The following rolling [tags](https://github.com/cssnr/mirror-repository-action/tags) are maintained.
 
-| Tag      | Example  | Bugs | Feat. | Description                            |
-| -------- | -------- | :--: | :---: | -------------------------------------- |
-| `vN`     | `v1`     |  ✅  |  ✅   | Points to latest `vN.x.x` release.     |
-| `vN.N`   | `v1.0`   |  ✅  |  ❌   | Points to latest `vN.N.x` release.     |
-| `vN.N.N` | `v1.0.0` |  ❌  |  ❌   | Points directly to a specific release. |
+| Tag                                                                                                                                                                                                                               | Example  | Target   | Bugs | Feat. | Description                                               |
+| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | -------- | :--: | :---: | --------------------------------------------------------- |
+| [![GitHub Tag](https://img.shields.io/github/v/tag/cssnr/mirror-repository-action?sort=semver&filter=!v*.*&style=for-the-badge&label=%20&color=limegreen)](https://github.com/cssnr/mirror-repository-action/releases/latest)     | `vN`     | `vN.x.x` |  ✅  |  ✅   | Includes new features but is always backwards compatible. |
+| [![GitHub Tag](https://img.shields.io/github/v/tag/cssnr/mirror-repository-action?sort=semver&filter=!v*.*.*&style=for-the-badge&label=%20&color=yellowgreen)](https://github.com/cssnr/mirror-repository-action/releases/latest) | `vN.N`   | `vN.N.x` |  ✅  |  ❌   | Only receives bug fixes. This is the most stable tag.     |
+| [![GitHub Release](https://img.shields.io/github/v/release/cssnr/mirror-repository-action?style=for-the-badge&label=%20&color=orange)](https://github.com/cssnr/mirror-repository-action/releases/latest)                         | `vN.N.N` | `vN.N.N` |  ❌  |  ❌   | Not a rolling tag. **Not** recommended.                   |
 
-**Important:** Make sure to use one of the [latest tags](https://github.com/cssnr/mirror-repository-action/tags).
-
-You can view the release notes for each version on the [releases page](https://github.com/cssnr/mirror-repository-action/releases).
+You can view the release notes for each version on the [releases](https://github.com/cssnr/mirror-repository-action/releases) page.
 
 # Support
 

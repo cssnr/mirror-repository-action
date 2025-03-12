@@ -1,12 +1,13 @@
-[![Release](https://img.shields.io/github/actions/workflow/status/cssnr/mirror-repository-action/release.yaml?logo=github&logoColor=white&label=release)](https://github.com/cssnr/mirror-repository-action/actions/workflows/release.yaml)
-[![Test](https://img.shields.io/github/actions/workflow/status/cssnr/mirror-repository-action/test.yaml?logo=github&logoColor=white&label=test)](https://github.com/cssnr/mirror-repository-action/actions/workflows/test.yaml)
-[![Lint](https://img.shields.io/github/actions/workflow/status/cssnr/mirror-repository-action/lint.yaml?logo=github&logoColor=white&label=lint)](https://github.com/cssnr/mirror-repository-action/actions/workflows/lint.yaml)
+[![Tags](https://img.shields.io/badge/tags-v1_%7C_v1.1-blue?logo=git&logoColor=white)](https://github.com/cssnr/mirror-repository-action/tags)
+[![GitHub Release Version](https://img.shields.io/github/v/release/cssnr/mirror-repository-action?logo=git&logoColor=white&label=latest)](https://github.com/cssnr/mirror-repository-action/releases/latest)
+[![Release](https://img.shields.io/github/actions/workflow/status/cssnr/mirror-repository-action/release.yaml?logo=github&label=release)](https://github.com/cssnr/mirror-repository-action/actions/workflows/release.yaml)
+[![Test](https://img.shields.io/github/actions/workflow/status/cssnr/mirror-repository-action/test.yaml?logo=github&label=test)](https://github.com/cssnr/mirror-repository-action/actions/workflows/test.yaml)
+[![Lint](https://img.shields.io/github/actions/workflow/status/cssnr/mirror-repository-action/lint.yaml?logo=github&label=lint)](https://github.com/cssnr/mirror-repository-action/actions/workflows/lint.yaml)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=cssnr_mirror-repository-action&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=cssnr_mirror-repository-action)
-[![GitHub Release Version](https://img.shields.io/github/v/release/cssnr/mirror-repository-action?logo=github)](https://github.com/cssnr/mirror-repository-action/releases/latest)
-[![GitHub Last Commit](https://img.shields.io/github/last-commit/cssnr/mirror-repository-action?logo=github&logoColor=white&label=updated)](https://github.com/cssnr/mirror-repository-action/graphs/commit-activity)
+[![GitHub Last Commit](https://img.shields.io/github/last-commit/cssnr/mirror-repository-action?logo=github&label=updated)](https://github.com/cssnr/mirror-repository-action/graphs/commit-activity)
 [![Codeberg Last Commit](https://img.shields.io/gitea/last-commit/cssnr/mirror-repository-action/master?gitea_url=https%3A%2F%2Fcodeberg.org%2F&logo=codeberg&logoColor=white&label=updated)](https://codeberg.org/cssnr/mirror-repository-action)
-[![GitHub Top Language](https://img.shields.io/github/languages/top/cssnr/mirror-repository-action?logo=htmx&logoColor=white)](https://github.com/cssnr/mirror-repository-action)
-[![GitHub Org Stars](https://img.shields.io/github/stars/cssnr?style=flat&logo=github&logoColor=white)](https://cssnr.github.io/)
+[![GitHub Top Language](https://img.shields.io/github/languages/top/cssnr/mirror-repository-action?logo=htmx)](https://github.com/cssnr/mirror-repository-action)
+[![GitHub Org Stars](https://img.shields.io/github/stars/cssnr?style=flat&logo=github)](https://cssnr.github.io/)
 [![Discord](https://img.shields.io/discord/899171661457293343?logo=discord&logoColor=white&label=discord&color=7289da)](https://discord.gg/wXy6m2X8wY)
 
 # Mirror Repository Action
@@ -14,10 +15,13 @@
 - [Inputs](#Inputs)
 - [Setup Instructions](#Setup-Instructions)
 - [Example](#Example)
+- [Tags](#Tags)
 - [Support](#Support)
 - [Contributing](#Contributing)
 
 Mirror Git Repository to Remote Host.
+
+A Web Extension for this Action that is in development: https://github.com/cssnr/github-extension
 
 ## Inputs
 
@@ -96,6 +100,20 @@ jobs:
 > [!IMPORTANT]  
 > Checkout `with: fetch-depth: 0` is necessary!
 
+## Tags
+
+The following [rolling tags](https://github.com/cssnr/mirror-repository-action/tags) are maintained.
+
+| Tag      | Example  | Bugs | Feat. | Description                            |
+| -------- | -------- | :--: | :---: | -------------------------------------- |
+| `vN`     | `v1`     |  ✅  |  ✅   | Points to latest `vN.x.x` release.     |
+| `vN.N`   | `v1.0`   |  ✅  |  ❌   | Points to latest `vN.N.x` release.     |
+| `vN.N.N` | `v1.0.0` |  ❌  |  ❌   | Points directly to a specific release. |
+
+**Important:** Make sure to use one of the [latest tags](https://github.com/cssnr/mirror-repository-action/tags).
+
+You can view the release notes for each version on the [releases page](https://github.com/cssnr/mirror-repository-action/releases).
+
 # Support
 
 For general help or to request a feature, see:
@@ -109,9 +127,13 @@ If you are experiencing an issue/bug or getting unexpected results, you can:
 - Chat with us on Discord: https://discord.gg/wXy6m2X8wY
 - Provide General Feedback: [https://cssnr.github.io/feedback/](https://cssnr.github.io/feedback/?app=Mirror%20Repository%20Action)
 
+For more information, see the CSSNR [SUPPORT.md](https://github.com/cssnr/.github/blob/master/.github/SUPPORT.md#support).
+
 # Contributing
 
 Currently, the best way to contribute to this project is to star this project on GitHub.
+
+For more information, see the CSSNR [CONTRIBUTING.md](https://github.com/cssnr/.github/blob/master/.github/CONTRIBUTING.md#contributing).
 
 Additionally, you can support other GitHub Actions I have published:
 

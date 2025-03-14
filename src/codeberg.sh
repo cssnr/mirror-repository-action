@@ -2,18 +2,20 @@
 
 set +e
 
+echo "Creating ${REPO_VISIBILITY} Repository."
+
 read -r -d '' BODY << EOF
 {
   "auto_init": true,
   "default_branch": "master",
   "name": "${REPO:?err}",
   "object_format_name": "sha1",
-  "private": false
+  "private": ${INPUT_PRIVATE}
 }
 
 EOF
 
-#echo "${BODY}"
+echo "${BODY}"
 
 if [ "${USERNAME}" = "${OWNER}" ];then
     echo "Personal Repository Detected."

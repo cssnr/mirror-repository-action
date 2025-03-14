@@ -27,6 +27,14 @@ inputs:
   password:
     description: "Remote Repository Password"
     required: false
+  summary:
+    description: "Add Summary to Job"
+    required: false
+    default: "true"
+  private:
+    description: "Private Repository"
+    required: false
+    default: "${{ github.event.repository.private }}"
 
 runs:
   using: "docker"

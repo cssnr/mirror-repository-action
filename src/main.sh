@@ -2,25 +2,18 @@
 
 set -e
 
-echo "Running: ${0} as: $(whoami) in: $(pwd)"
-
+echo "::group::Starting Mirror Repository Action ${GITHUB_ACTION_REF}"
+echo "User: $(whoami)"
+echo "Script: ${0}"
+echo "Current Directory: $(pwd)"
+echo "Home Directory: ${HOME}"
 echo "---------- GITHUB ----------"
-
 echo "GITHUB_EVENT_NAME: ${GITHUB_EVENT_NAME}"
 echo "GITHUB_REF: ${GITHUB_REF}"
-#echo "GITHUB_BASE_REF: ${GITHUB_BASE_REF}"
-#echo "GITHUB_HEAD_REF: ${GITHUB_HEAD_REF}"
-#echo "GITHUB_REF_NAME: ${GITHUB_REF_NAME}"
-#echo "GITHUB_REPOSITORY: ${GITHUB_REPOSITORY}"
-#echo "GITHUB_RUN_NUMBER: ${GITHUB_RUN_NUMBER}"
-#echo "GITHUB_RUN_ATTEMPT: ${GITHUB_RUN_ATTEMPT}"
 echo "GITHUB_REPOSITORY: ${GITHUB_REPOSITORY}"
 echo "GITHUB_REPOSITORY_OWNER: ${GITHUB_REPOSITORY_OWNER}"
+echo "::endgroup::"
 
-echo "---------- INPUTS ----------"
-
-#[[ -n "${INPUT_URL}" ]] && REMOTE_URL="${INPUT_URL}"
-#echo "REMOTE_URL: ${REMOTE_URL}"
 if [ -z "${INPUT_URL}" ];then
     echo "No INPUT_URL: Processing variables manually."
     HOST="${INPUT_HOST:?err}"
@@ -53,16 +46,16 @@ GIT_URL="https://${GIT_HOST}"
 echo "GIT_URL: ${GIT_URL}"
 
 if [ -n "${INPUT_CREATE}" ];then
-    echo "Attempting Create Repository: ${INPUT_CREATE}"
+    echo "::group::Attempting Create Repository"
     set +e
     # shellcheck source=/src/codeberg.sh
     source /src/codeberg.sh
     set -e
+    echo "::endgroup::"
 fi
 
-
+echo "::group::Setting up Mirror"
 git config --global --add safe.directory "$(pwd)"
-
 git config --global credential.helper cache
 git credential approve <<EOF
 protocol=https
@@ -70,25 +63,12 @@ host=${GIT_HOST}
 username=${USERNAME}
 password=${PASSWORD}
 EOF
-
-#echo "git branch: $(git branch)"
-#BRANCH1="$(git rev-parse --abbrev-ref HEAD)"
-#echo "BRANCH1: ${BRANCH1}"
-BRANCH="$(git rev-parse --symbolic-full-name --abbrev-ref HEAD)"
-echo "BRANCH: ${BRANCH}"
-
-git remote -v
 git remote add mirror "${REMOTE_URL}"
 git remote -v
+echo "::endgroup::"
+
+echo "Pushing Changes"
 
 git push --tags --follow-tags --force --prune mirror "refs/remotes/origin/*:refs/heads/*"
-
-#if [ "${GITHUB_EVENT_NAME}" == "push" ];then
-#    echo "event: ${GITHUB_EVENT_NAME}"
-#    #git push mirror "${BRANCH}"
-#    git push --tags --force --prune mirror "refs/remotes/origin/*:refs/heads/*"
-#else
-#    echo -e "\u001b[31;1mUNKNOWN event: ${GITHUB_EVENT_NAME}"
-#fi
 
 echo -e "\u001b[32;1mFinished Success."

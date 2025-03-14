@@ -1,9 +1,9 @@
 [![GitHub Tag Major](https://img.shields.io/github/v/tag/cssnr/mirror-repository-action?sort=semver&filter=!v*.*&logo=git&logoColor=white&labelColor=585858&label=%20)](https://github.com/cssnr/mirror-repository-action/tags)
 [![GitHub Tag Minor](https://img.shields.io/github/v/tag/cssnr/mirror-repository-action?sort=semver&filter=!v*.*.*&logo=git&logoColor=white&labelColor=585858&label=%20)](https://github.com/cssnr/mirror-repository-action/tags)
 [![GitHub Release Version](https://img.shields.io/github/v/release/cssnr/mirror-repository-action?logo=git&logoColor=white&labelColor=585858&label=%20)](https://github.com/cssnr/mirror-repository-action/releases/latest)
-[![Release](https://img.shields.io/github/actions/workflow/status/cssnr/mirror-repository-action/release.yaml?logo=github&label=release)](https://github.com/cssnr/mirror-repository-action/actions/workflows/release.yaml)
-[![Test](https://img.shields.io/github/actions/workflow/status/cssnr/mirror-repository-action/test.yaml?logo=github&label=test)](https://github.com/cssnr/mirror-repository-action/actions/workflows/test.yaml)
-[![Lint](https://img.shields.io/github/actions/workflow/status/cssnr/mirror-repository-action/lint.yaml?logo=github&label=lint)](https://github.com/cssnr/mirror-repository-action/actions/workflows/lint.yaml)
+[![Workflow Release](https://img.shields.io/github/actions/workflow/status/cssnr/mirror-repository-action/release.yaml?logo=github&label=release)](https://github.com/cssnr/mirror-repository-action/actions/workflows/release.yaml)
+[![Workflow Test](https://img.shields.io/github/actions/workflow/status/cssnr/mirror-repository-action/test.yaml?logo=github&label=test)](https://github.com/cssnr/mirror-repository-action/actions/workflows/test.yaml)
+[![Workflow Lint](https://img.shields.io/github/actions/workflow/status/cssnr/mirror-repository-action/lint.yaml?logo=github&label=lint)](https://github.com/cssnr/mirror-repository-action/actions/workflows/lint.yaml)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=cssnr_mirror-repository-action&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=cssnr_mirror-repository-action)
 [![GitHub Last Commit](https://img.shields.io/github/last-commit/cssnr/mirror-repository-action?logo=github&label=updated)](https://github.com/cssnr/mirror-repository-action/graphs/commit-activity)
 [![Codeberg Last Commit](https://img.shields.io/gitea/last-commit/cssnr/mirror-repository-action/master?gitea_url=https%3A%2F%2Fcodeberg.org%2F&logo=codeberg&logoColor=white&label=updated)](https://codeberg.org/cssnr/mirror-repository-action)
@@ -24,15 +24,15 @@ Mirror Git Repository to Remote Host.
 
 ## Inputs
 
-| input    | required  | default    | description                                              |
-| -------- | :-------: | ---------- | -------------------------------------------------------- |
-| url      | or `host` | -          | \* Full URL to Mirror, overrides: `host`/`owner`/`repo`  |
-| host     | or `url`  | -          | \* Full Host to Mirror, example: `https://codeberg.org`  |
-| owner    |     -     | Repo Owner | \* Repository Owner of Mirror (if different from source) |
-| repo     |     -     | Repo Name  | \* Repository Name of Mirror (if different from source)  |
-| create   |     -     | -          | \* Set to `true` to attempt to Create the Mirror Repo    |
-| username |     -     | Repo Owner | Username for Authentication to Mirror                    |
-| password |  **Yes**  | -          | Token or Password for Authentication to Mirror           |
+| Input      | Required  | Default    | Description                                              |
+| :--------- | :-------: | :--------- | :------------------------------------------------------- |
+| `url`      | or `host` | -          | \* Full URL to Mirror, overrides: `host`/`owner`/`repo`  |
+| `host`     | or `url`  | -          | \* Full Host to Mirror, example: `https://codeberg.org`  |
+| `owner`    |     -     | Repo Owner | \* Repository Owner of Mirror (if different from source) |
+| `repo`     |     -     | Repo Name  | \* Repository Name of Mirror (if different from source)  |
+| `create`   |     -     | -          | \* Set to `true` to attempt to Create the Mirror Repo    |
+| `username` |     -     | Repo Owner | Username for Authentication to Mirror                    |
+| `password` |  **Yes**  | -          | Token or Password for Authentication to Mirror           |
 
 **url/host** - You must provide either a full repository `url` or a `host` value.
 
@@ -106,15 +106,15 @@ jobs:
 
 ## Tags
 
-The following rolling [tags](https://github.com/cssnr/mirror-repository-action/tags) are maintained.
+The following rolling [tags](https://github.com/smashedr/update-release-notes-action/tags) are maintained.
 
-| Tag                                                                                                                                                                                                                               | Example  | Target   | Bugs | Feat. | Description                                               |
-| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | -------- | :--: | :---: | --------------------------------------------------------- |
-| [![GitHub Tag](https://img.shields.io/github/v/tag/cssnr/mirror-repository-action?sort=semver&filter=!v*.*&style=for-the-badge&label=%20&color=limegreen)](https://github.com/cssnr/mirror-repository-action/releases/latest)     | `vN`     | `vN.x.x` |  ✅  |  ✅   | Includes new features but is always backwards compatible. |
-| [![GitHub Tag](https://img.shields.io/github/v/tag/cssnr/mirror-repository-action?sort=semver&filter=!v*.*.*&style=for-the-badge&label=%20&color=yellowgreen)](https://github.com/cssnr/mirror-repository-action/releases/latest) | `vN.N`   | `vN.N.x` |  ✅  |  ❌   | Only receives bug fixes. This is the most stable tag.     |
-| [![GitHub Release](https://img.shields.io/github/v/release/cssnr/mirror-repository-action?style=for-the-badge&label=%20&color=orange)](https://github.com/cssnr/mirror-repository-action/releases/latest)                         | `vN.N.N` | `vN.N.N` |  ❌  |  ❌   | Not a rolling tag. **Not** recommended.                   |
+| Version&nbsp;Tag                                                                                                                                                                                                                             | Rolling | Bugs | Feat. | Target   | Example  |
+| :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :-----: | :--: | :---: | :------- | :------- |
+| [![GitHub Tag Major](https://img.shields.io/github/v/tag/smashedr/update-release-notes-action?sort=semver&filter=!v*.*&style=for-the-badge&label=%20&color=44cc10)](https://github.com/smashedr/update-release-notes-action/releases/latest) |   ✅    |  ✅  |  ✅   | `vN.x.x` | `vN`     |
+| [![GitHub Tag Minor](https://img.shields.io/github/v/tag/smashedr/update-release-notes-action?sort=semver&filter=!v*.*.*&style=for-the-badge&label=%20&color=blue)](https://github.com/smashedr/update-release-notes-action/releases/latest) |   ✅    |  ✅  |  ❌   | `vN.N.x` | `vN.N`   |
+| [![GitHub Release](https://img.shields.io/github/v/release/smashedr/update-release-notes-action?style=for-the-badge&label=%20&color=red)](https://github.com/smashedr/update-release-notes-action/releases/latest)                           |   ❌    |  ❌  |  ❌   | `vN.N.N` | `vN.N.N` |
 
-You can view the release notes for each version on the [releases](https://github.com/cssnr/mirror-repository-action/releases) page.
+You can view the release notes for each version on the [releases](https://github.com/smashedr/update-release-notes-action/releases) page.
 
 # Support
 

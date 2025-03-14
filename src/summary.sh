@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-# shellcheck disable=SC2154
 
 if [[ "${EXIT_STATUS}" == 0 ]];then
 _result="✅ Successfully Mirrored: \`${GITHUB_REPOSITORY}\`"$'\n\n'"- ${REMOTE_URL}"

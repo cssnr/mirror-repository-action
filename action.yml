@@ -1,5 +1,5 @@
 name: "Mirror Repository Action"
-description: "Mirror Git Repository to Remote Host."
+description: "Mirror a GitHub Repository to Remote Host like Codeberg, Forgejo, GitLab and More"
 author: "Shane"
 branding:
   icon: "git-merge"

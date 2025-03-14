@@ -51,15 +51,17 @@ Example: https://github.com/cssnr/mirror-repository-action
 
 ✅ Successfully Mirrored: `cssnr/mirror-repository-action`
 
+- https://codeberg.org/cssnr/mirror-repository-action
+
 <details><summary>Results</summary>
 
 ```text
 remote:
-remote: Create a new pull request for 'summary':
-remote:   https://codeberg.org/cssnr/mirror-repository-action/compare/master...summary
+remote: Create a new pull request for 'updates':
+remote:   https://codeberg.org/cssnr/mirror-repository-action/compare/master...updates
 remote:
 To https://codeberg.org/cssnr/mirror-repository-action
-   98ffcda..94add29  origin/summary -> summary
+   eaadc3f..da84f34  origin/updates -> updates
 ```
 
 </details>

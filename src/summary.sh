@@ -2,7 +2,7 @@
 # shellcheck disable=SC2154
 
 if [[ "${EXIT_STATUS}" == 0 ]];then
-    _result="✅ Successfully Mirrored: \`${GITHUB_REPOSITORY}\`"
+    _result="✅ Successfully Mirrored: \`${GITHUB_REPOSITORY}\`\nTo: ${REMOTE_URL}"
     _details="<details><summary>Results</summary>"
 else
     _result="⛔ Error Mirroring: \`${GITHUB_REPOSITORY}\`"

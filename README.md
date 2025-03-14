@@ -24,21 +24,49 @@ Mirror Git Repository to Remote Host.
 
 ## Inputs
 
-| Input      | Required  | Default    | Description                                              |
-| :--------- | :-------: | :--------- | :------------------------------------------------------- |
-| `url`      | or `host` | -          | \* Full URL to Mirror, overrides: `host`/`owner`/`repo`  |
-| `host`     | or `url`  | -          | \* Full Host to Mirror, example: `https://codeberg.org`  |
-| `owner`    |     -     | Repo Owner | \* Repository Owner of Mirror (if different from source) |
-| `repo`     |     -     | Repo Name  | \* Repository Name of Mirror (if different from source)  |
-| `create`   |     -     | -          | \* Set to `true` to attempt to Create the Mirror Repo    |
-| `username` |     -     | Repo Owner | Username for Authentication to Mirror                    |
-| `password` |  **Yes**  | -          | Token or Password for Authentication to Mirror           |
+| Input      | Required  | Default      | Description                                              |
+| :--------- | :-------: | :----------- | :------------------------------------------------------- |
+| `url`      | or `host` | -            | \* Full URL to Mirror; Overrides: `host`/`owner`/`repo`  |
+| `host`     | or `url`  | -            | \* Full Host to Mirror; Example: `https://codeberg.org`  |
+| `owner`    |     -     | Repo Owner   | \* Repository Owner of Mirror (if different from source) |
+| `repo`     |     -     | Repo Name    | \* Repository Name of Mirror (if different from source)  |
+| `create`   |     -     | `false`      | \* Set to `true` to attempt to Create the Mirror Repo    |
+| `username` |     -     | Repo Owner   | Username for Authentication to Mirror                    |
+| `password` |  **Yes**  | -            | Token or Password for Authentication to Mirror           |
+| `summary`  |     -     | `true`       | Add Job Summary. Set to `false` to Disable               |
+| `priavte`  |     -     | Repo Private | If the Mirror Repo Status is Different from Source       |
 
-**url/host** - You must provide either a full repository `url` or a `host` value.
+**url/host:** You must provide either a full repository `url` or a `host` value.  
+Example: https://github.com/cssnr/mirror-repository-action
 
-**owner/repo** - If different from source, you must specify these values (overridden by `url`).
+**owner/repo:** If different from source, you must specify these values (overridden by `url`).
 
-**create** - Tested with codeberg but should also work with gitea/forgejo. Do not set or leave empty to disable.
+**create:** Tested with codeberg but should also work with gitea/forgejo. Set to `true` to enable.
+
+**summary:** Write a Summary for the job. To disable this set to `false`.
+
+<details><summary>👀 View Example Job Summary</summary>
+
+---
+
+✅ Successfully Mirrored: `cssnr/mirror-repository-action`
+
+<details><summary>Results</summary>
+
+```text
+remote:
+remote: Create a new pull request for 'summary':
+remote:   https://codeberg.org/cssnr/mirror-repository-action/compare/master...summary
+remote:
+To https://codeberg.org/cssnr/mirror-repository-action
+   98ffcda..94add29  origin/summary -> summary
+```
+
+</details>
+
+---
+
+</details>
 
 ## Setup Instructions
 
@@ -104,17 +132,20 @@ jobs:
 > [!IMPORTANT]  
 > Checkout `with: fetch-depth: 0` is necessary!
 
+For more examples, you can check out other projects using this action:  
+https://github.com/cssnr/mirror-repository-action/network/dependents
+
 ## Tags
 
-The following rolling [tags](https://github.com/smashedr/update-release-notes-action/tags) are maintained.
+The following rolling [tags](https://github.com/cssnr/mirror-repository-action/tags) are maintained.
 
-| Version&nbsp;Tag                                                                                                                                                                                                                             | Rolling | Bugs | Feat. | Target   | Example  |
-| :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :-----: | :--: | :---: | :------- | :------- |
-| [![GitHub Tag Major](https://img.shields.io/github/v/tag/smashedr/update-release-notes-action?sort=semver&filter=!v*.*&style=for-the-badge&label=%20&color=44cc10)](https://github.com/smashedr/update-release-notes-action/releases/latest) |   ✅    |  ✅  |  ✅   | `vN.x.x` | `vN`     |
-| [![GitHub Tag Minor](https://img.shields.io/github/v/tag/smashedr/update-release-notes-action?sort=semver&filter=!v*.*.*&style=for-the-badge&label=%20&color=blue)](https://github.com/smashedr/update-release-notes-action/releases/latest) |   ✅    |  ✅  |  ❌   | `vN.N.x` | `vN.N`   |
-| [![GitHub Release](https://img.shields.io/github/v/release/smashedr/update-release-notes-action?style=for-the-badge&label=%20&color=red)](https://github.com/smashedr/update-release-notes-action/releases/latest)                           |   ❌    |  ❌  |  ❌   | `vN.N.N` | `vN.N.N` |
+| Version&nbsp;Tag                                                                                                                                                                                                                 | Rolling | Bugs | Feat. | Target   | Example  |
+| :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :-----: | :--: | :---: | :------- | :------- |
+| [![GitHub Tag Major](https://img.shields.io/github/v/tag/cssnr/mirror-repository-action?sort=semver&filter=!v*.*&style=for-the-badge&label=%20&color=44cc10)](https://github.com/cssnr/mirror-repository-action/releases/latest) |   ✅    |  ✅  |  ✅   | `vN.x.x` | `vN`     |
+| [![GitHub Tag Minor](https://img.shields.io/github/v/tag/cssnr/mirror-repository-action?sort=semver&filter=!v*.*.*&style=for-the-badge&label=%20&color=blue)](https://github.com/cssnr/mirror-repository-action/releases/latest) |   ✅    |  ✅  |  ❌   | `vN.N.x` | `vN.N`   |
+| [![GitHub Release](https://img.shields.io/github/v/release/cssnr/mirror-repository-action?style=for-the-badge&label=%20&color=red)](https://github.com/cssnr/mirror-repository-action/releases/latest)                           |   ❌    |  ❌  |  ❌   | `vN.N.N` | `vN.N.N` |
 
-You can view the release notes for each version on the [releases](https://github.com/smashedr/update-release-notes-action/releases) page.
+You can view the release notes for each version on the [releases](https://github.com/cssnr/mirror-repository-action/releases) page.
 
 # Support
 

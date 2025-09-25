@@ -3,7 +3,7 @@
 
 set -e
 
-# shellcheck disable=SC2317
+# shellcheck disable=SC2317,SC2329
 function exit_trap() {
     _ST="$?"
     if [[ "${_ST}" != "0" ]]; then

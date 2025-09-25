@@ -18,11 +18,11 @@ jobs:
 
     steps:
       - name: "Checkout"
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
-      #- name: "Debug event.json"
-      #  run: |
-      #    cat "${GITHUB_EVENT_PATH}"
+      - name: "Debug event.json"
+        run: |
+          cat "${GITHUB_EVENT_PATH}"
 
       - name: "ShellCheck"
         if: ${{ !cancelled() }}

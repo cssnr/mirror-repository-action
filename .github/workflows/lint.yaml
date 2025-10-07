@@ -16,13 +16,18 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 5
 
+    permissions:
+      pull-requests: write
+
     steps:
       - name: "Checkout"
         uses: actions/checkout@v5
 
-      - name: "Debug event.json"
-        run: |
-          cat "${GITHUB_EVENT_PATH}"
+      #- name: "Debug CTX github"
+      #  continue-on-error: true
+      #  env:
+      #    GITHUB_CTX: ${{ toJSON(github) }}
+      #  run: echo "$GITHUB_CTX"
 
       - name: "ShellCheck"
         if: ${{ !cancelled() }}
@@ -39,13 +44,6 @@ jobs:
           npm install prettier
           echo "::endgroup::"
           npx prettier --check .
-
-      - name: "Hadolint"
-        if: ${{ !cancelled() }}
-        uses: hadolint/hadolint-action@v3.1.0
-        with:
-          dockerfile: Dockerfile
-          ignore: DL3018
 
       - name: "Yamllint"
         if: ${{ !cancelled() }}
@@ -72,6 +70,13 @@ jobs:
           "${RUNNER_TEMP}/actionlint" --version
           echo "::endgroup::"
           "${RUNNER_TEMP}/actionlint" -color -verbose -shellcheck= -pyflakes=
+
+      - name: "Hadolint"
+        if: ${{ !cancelled() }}
+        uses: hadolint/hadolint-action@v3.1.0
+        with:
+          dockerfile: Dockerfile
+          ignore: DL3018
 
       #- name: "Vale"
       #  if: ${{ !cancelled() }}

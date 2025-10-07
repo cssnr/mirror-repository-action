@@ -1,6 +1,6 @@
 name: "Test"
 
-# TODO: This job mirror's the repository so there is no mirror.yaml. Overhaul this workflow...
+# NOTE: This job mirror's the repository so there is no mirror.yaml.
 
 on:
   workflow_dispatch:
@@ -20,6 +20,12 @@ jobs:
         with:
           fetch-depth: 0
 
+      #- name: "Debug CTX github"
+      #  continue-on-error: true
+      #  env:
+      #    GITHUB_CTX: ${{ toJSON(github) }}
+      #  run: echo "$GITHUB_CTX"
+
       - name: "Test Local Action"
         id: test
         uses: ./
@@ -31,3 +37,9 @@ jobs:
           create: true
           username: shaner
           password: ${{ secrets.CODEBERG_TOKEN }}
+
+      #- name: "Schedule Failure Notification"
+      #  if: ${{ failure() && github.event_name == 'schedule' }}
+      #  uses: sarisia/actions-status-discord@v1
+      #  with:
+      #    webhook: ${{ secrets.DISCORD_WEBHOOK }}

@@ -30,17 +30,17 @@ Mirror Git Repository to Remote Host.
 
 ## Inputs
 
-| Input                 | Required  | Default&nbsp;Value | Description&nbsp;of&nbsp;Input&nbsp;Value                |
-| :-------------------- | :-------: | :----------------- | :------------------------------------------------------- |
-| [url](#urlhost)       | or `host` | -                  | \* Full URL to Mirror; Overrides: `host`/`owner`/`repo`  |
-| [host](#urlhost)      | or `url`  | -                  | \* Full Host to Mirror; Example: `https://codeberg.org`  |
-| [owner](#ownerrepo)   |     -     | Repo Owner         | \* Repository Owner of Mirror (if different from source) |
-| [repo](#ownerrepo)    |     -     | Repo Name          | \* Repository Name of Mirror (if different from source)  |
-| [create](#create)     |     -     | `false`            | \* Set to `true` to attempt to Create the Mirror Repo    |
-| [username](#username) |     -     | Repo Owner         | Username for Authentication to Mirror                    |
-| [password](#password) |  **Yes**  | -                  | Token or Password for Authentication to Mirror           |
-| [summary](#summary)   |     -     | `true`             | Add Job Summary. Set to `false` to Disable               |
-| [private](#private)   |     -     | Repo Private       | If the Mirror Repo Status is Different from Source       |
+| Input&nbsp;Name       | Default&nbsp;Value | Short&nbsp;Description&nbsp;of&nbsp;the&nbsp;Input&nbsp;Value |
+| :-------------------- | :----------------- | :------------------------------------------------------------ |
+| [url](#urlhost)       | _or host_          | Full URL to Mirror; Overrides: `host`/`owner`/`repo`          |
+| [host](#urlhost)      | _or url_           | Full Host to Mirror; Example: `https://codeberg.org`          |
+| [owner](#ownerrepo)   | Repo Owner         | Repository Owner of Mirror (if different from source)         |
+| [repo](#ownerrepo)    | Repo Name          | Repository Name of Mirror (if different from source)          |
+| [create](#create)     | `false`            | Set to `true` to attempt to Create the Mirror Repo            |
+| [username](#username) | Repo Owner         | Username for Authentication to Mirror                         |
+| [password](#password) | _Required_         | Token or Password for Authentication to Mirror                |
+| [summary](#summary)   | `true`             | Add Job Summary. Set to `false` to Disable                    |
+| [private](#private)   | Repo Private       | If the Mirror Repo Status is Different from Source            |
 
 #### url/host
 

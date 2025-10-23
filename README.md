@@ -7,7 +7,7 @@
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=cssnr_mirror-repository-action&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=cssnr_mirror-repository-action)
 [![GitHub Last Commit](https://img.shields.io/github/last-commit/cssnr/mirror-repository-action?logo=github&label=updated)](https://github.com/cssnr/mirror-repository-action/pulse)
 [![Codeberg Last Commit](https://img.shields.io/gitea/last-commit/cssnr/mirror-repository-action/master?gitea_url=https%3A%2F%2Fcodeberg.org%2F&logo=codeberg&logoColor=white&label=updated)](https://codeberg.org/cssnr/mirror-repository-action)
-[![GitHub Contributors](https://img.shields.io/github/contributors/cssnr/mirror-repository-action?logo=github)](https://github.com/cssnr/mirror-repository-action/graphs/contributors)
+[![GitHub Contributors](https://img.shields.io/github/contributors-anon/cssnr/mirror-repository-action?logo=github)](https://github.com/cssnr/mirror-repository-action/graphs/contributors)
 [![GitHub Repo Size](https://img.shields.io/github/repo-size/cssnr/mirror-repository-action?logo=bookstack&logoColor=white&label=repo%20size)](https://github.com/cssnr/mirror-repository-action?tab=readme-ov-file#readme)
 [![GitHub Top Language](https://img.shields.io/github/languages/top/cssnr/mirror-repository-action?logo=htmx)](https://github.com/cssnr/mirror-repository-action)
 [![GitHub Discussions](https://img.shields.io/github/discussions/cssnr/mirror-repository-action?logo=github)](https://github.com/cssnr/mirror-repository-action/discussions)
@@ -30,26 +30,42 @@ Mirror Git Repository to Remote Host.
 
 ## Inputs
 
-| Input    | Required  | Default&nbsp;Value | Description&nbsp;of&nbsp;Input&nbsp;Value                |
-| :------- | :-------: | :----------------- | :------------------------------------------------------- |
-| url      | or `host` | -                  | \* Full URL to Mirror; Overrides: `host`/`owner`/`repo`  |
-| host     | or `url`  | -                  | \* Full Host to Mirror; Example: `https://codeberg.org`  |
-| owner    |     -     | Repo Owner         | \* Repository Owner of Mirror (if different from source) |
-| repo     |     -     | Repo Name          | \* Repository Name of Mirror (if different from source)  |
-| create   |     -     | `false`            | \* Set to `true` to attempt to Create the Mirror Repo    |
-| username |     -     | Repo Owner         | Username for Authentication to Mirror                    |
-| password |  **Yes**  | -                  | Token or Password for Authentication to Mirror           |
-| summary  |     -     | `true`             | Add Job Summary. Set to `false` to Disable               |
-| priavte  |     -     | Repo Private       | If the Mirror Repo Status is Different from Source       |
+| Input                 | Required  | Default&nbsp;Value | Description&nbsp;of&nbsp;Input&nbsp;Value                |
+| :-------------------- | :-------: | :----------------- | :------------------------------------------------------- |
+| [url](#urlhost)       | or `host` | -                  | \* Full URL to Mirror; Overrides: `host`/`owner`/`repo`  |
+| [host](#urlhost)      | or `url`  | -                  | \* Full Host to Mirror; Example: `https://codeberg.org`  |
+| [owner](#ownerrepo)   |     -     | Repo Owner         | \* Repository Owner of Mirror (if different from source) |
+| [repo](#ownerrepo)    |     -     | Repo Name          | \* Repository Name of Mirror (if different from source)  |
+| [create](#create)     |     -     | `false`            | \* Set to `true` to attempt to Create the Mirror Repo    |
+| [username](#username) |     -     | Repo Owner         | Username for Authentication to Mirror                    |
+| [password](#password) |  **Yes**  | -                  | Token or Password for Authentication to Mirror           |
+| [summary](#summary)   |     -     | `true`             | Add Job Summary. Set to `false` to Disable               |
+| [private](#private)   |     -     | Repo Private       | If the Mirror Repo Status is Different from Source       |
 
-**url/host:** You must provide either a full repository `url` or a `host` value.  
+#### url/host
+
+You must provide either a full repository `url` or a `host` value.  
 Example: https://github.com/cssnr/mirror-repository-action
 
-**owner/repo:** If different from source, you must specify these values (overridden by `url`).
+#### owner/repo
 
-**create:** Tested with codeberg but should also work with gitea/forgejo. Set to `true` to enable.
+If different from source, you must specify these values (overridden by `url`).
 
-**summary:** Write a Summary for the job. To disable this set to `false`.
+#### create
+
+Tested with Codeberg but should also work with Gitea/Forgejo. Set to `true` to enable.
+
+#### username
+
+Authentication username if different from [owner](#ownerrepo).
+
+#### password
+
+Authentication password or token associated with the [username](#username).
+
+#### summary
+
+Write a Summary for the job. To disable this set to `false`.
 
 <details><summary>👀 View Example Job Summary</summary>
 
@@ -75,6 +91,10 @@ To https://codeberg.org/cssnr/mirror-repository-action
 ---
 
 </details>
+
+#### private
+
+If the Mirror Repo Status is Different from Source.
 
 ## Setup Instructions
 
@@ -172,12 +192,12 @@ For more information, see the CSSNR [SUPPORT.md](https://github.com/cssnr/.githu
 
 # Contributing
 
+If you would like to submit a PR, please review the [CONTRIBUTING.md](#contributing-ov-file).
+
 Please consider making a donation to support the development of this project
 and [additional](https://cssnr.com/) open source projects.
 
 [![Ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/cssnr)
-
-If you would like to submit a PR, please review the [CONTRIBUTING.md](#contributing-ov-file).
 
 Additionally, you can support other GitHub Actions I have published:
 
@@ -231,4 +251,4 @@ Note: The `docker-test-action` builds, runs and pushes images to [GitHub Contain
 
 </details>
 
-For a full list of current projects visit: [https://cssnr.github.io/](https://cssnr.github.io/)
+For a full list of current projects to support visit: [https://cssnr.github.io/](https://cssnr.github.io/)

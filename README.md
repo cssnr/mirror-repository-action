@@ -28,6 +28,9 @@
 
 Mirror Git Repository to Remote Host.
 
+> [!TIP]  
+> Check out the [Getting Started](https://actions.cssnr.com/mirror-repository/) guide online.
+
 ## Inputs
 
 | Input&nbsp;Name       | Default&nbsp;Value | Short&nbsp;Description&nbsp;of&nbsp;the&nbsp;Input&nbsp;Value |
